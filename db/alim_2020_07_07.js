@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+const alimStringDB = `<?xml version="1.0" encoding="utf-8" ?>
 <table>
    <alim>
       <alim_code> 1000 </alim_code>
@@ -28665,4 +28665,4 @@
       <alim_ssgrp_code> 0305 </alim_ssgrp_code>
       <alim_ssssgrp_code> 030501 </alim_ssssgrp_code>
    </alim>
-</table>
+</table>`;

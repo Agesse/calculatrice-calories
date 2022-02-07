@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="windows-1252" ?>
+const compoStringDB = `<?xml version="1.0" encoding="windows-1252" ?>
 <TABLE>
    <COMPO>
       <alim_code> 1017 </alim_code>
@@ -9268,4 +9268,4 @@
       <alim_code> 96781 </alim_code>
       <teneur> 343 </teneur>
    </COMPO>
-</TABLE>
+</TABLE>`;

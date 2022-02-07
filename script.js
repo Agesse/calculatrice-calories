@@ -18,30 +18,14 @@ const uniqueElems = {
   calPerPart: "calories-per-part",
 };
 
-/** *** FETCH BDD ALIMENTS *****/
-const ingrDBReq = new XMLHttpRequest();
-ingrDBReq.onreadystatechange = (e) => {
-  const req = e.target;
-  if (req.readyState == 4 && req.status == 200) {
-    ingrDB = req.responseXML;
-    document.getElementById(uniqueElems.totalIngr).textContent = getTotalIngr().numberValue;
-  }
-};
-ingrDBReq.open("GET", "/alim_2020_07_07");
-ingrDBReq.overrideMimeType("text/xml; charset=utf-8");
-ingrDBReq.send();
+/** *** READ BDD *****/
+window.addEventListener("load", () => {
+  let parser = new DOMParser();
+  ingrDB = parser.parseFromString(alimStringDB, "text/xml");
+  document.getElementById(uniqueElems.totalIngr).textContent = getTotalIngr().numberValue;
 
-/** *** FETCH BDD CALORIES *****/
-const calDBReq = new XMLHttpRequest();
-calDBReq.onreadystatechange = (e) => {
-  const req = e.target;
-  if (req.readyState == 4 && req.status == 200) {
-    calDB = req.responseXML;
-  }
-};
-calDBReq.open("GET", "/compo_2020_07_07");
-calDBReq.overrideMimeType("text/xml; charset=utf-8");
-calDBReq.send();
+  calDB = parser.parseFromString(compoStringDB, "text/xml");
+});
 
 /** *** LOGIQUE *****/
 /**

@@ -1,7 +1,3 @@
 # Utilisation
 
-Lancer dans un terminal
-`npm i`
-
-Puis quand les dépendances ont fini d'être installées
-`npm start`
+RDV directement sur la page Github pour voir ce projet
