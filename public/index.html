@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculatrice de calories</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" type="text/css" href="styles/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/flexboxgrid-a11y.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/skeleton-a11y.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1><img alt="" src="favicon/android-chrome-192x192.png" /> Calculatrice de calories</h1>
+      <p class="subtitle">
+        Aliments présents dans la base de donnée :
+        <span id="total-ingredients">0</span>
+      </p>
+      <p>
+        Les données proviennent de la
+        <a href="https://ciqual.anses.fr/">CIQUAL</a> et prennent en compte la partie comestible uniquement des
+        aliments.<br />
+        Exemples : pomme sans trognon, poisson sans arrêtes, ...
+      </p>
+
+      <h2>Recette</h2>
+
+      <p>Cherchez et ajoutez un aliment pour composer une recette</p>
+
+      <div class="row">
+        <div class="col-10 no-padding">
+          <table class="full-width">
+            <thead>
+              <tr>
+                <th>Nom de l'aliment</th>
+                <th>kcal / 100 g</th>
+                <th>Quantité en g</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="recipe">
+              <tr>
+                <td colspan="4">Aucun élément à afficher</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="row">
+            <div class="col row-end no-padding">
+              <label for="nb-parts">Nombre de parts</label>
+              <input id="nb-parts" type="number" min="0" step="1" value="1" oninput="onchangeQuantity()" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-2 calories">
+          <h3>Calories</h3>
+          <p id="total-calories">0</p>
+          <p>soit <span id="calories-per-part">0</span> par part</p>
+        </div>
+      </div>
+
+      <h2>Ajouter un aliment</h2>
+
+      <p>
+        Recherchez un aliment par son nom en base de donnée <br />
+        <span class="bold">ou</span> ajoutez un aliment personnalisé via son nom et ses calories pour 100 g.
+      </p>
+
+      <form action="#" onsubmit="searchIngr();return false">
+        <div class="row">
+          <div class="col-5 no-padding">
+            <label for="searched-txt"> Nom de l'aliment</label>
+            <input class="full-width" type="text" id="searched-txt" placeholder="Laitue, beurre, ..." />
+
+            <div class="row-end">
+              <input class="button-primary" type="submit" value="Rechercher en base" />
+            </div>
+          </div>
+
+          <div class="col-5">
+            <label for="calories-input">Calories de l'aliment (pour 100 g)</label>
+            <input class="full-width" type="number" min="0" step="1" placeholder="124" id="calories-input" />
+
+            <div class="row-end">
+              <input type="button" value="Ajouter l'aliment personnalisé" onclick="addCustomIngr()" />
+              <p class="error hidden" id="calories-input-error">
+                Spécifier le nom et les calories pour ajouter un ingrédient personnalisé.
+              </p>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col-10 no-padding">
+          <h3 class="primary-header"><span id="result-count">0</span> aliment(s) trouvé(s)</h3>
+          <table class="full-width">
+            <thead>
+              <tr>
+                <th>Nom de l'aliment</th>
+                <th>kcal / 100 g</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="results">
+              <tr>
+                <td colspan="3">Aucun élément à afficher</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+main {
+  margin-top: 2rem;
+}
+
+h1 img {
+  width: 50px;
+}
+
+h1 {
+  color: var(--ske-main-color);
+}
+
+.error,
+h3.primary-header {
+  color: var(--ske-accent-color);
+}
+
+h3,
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.calories {
+  text-align: center;
+}
+
+.calories #total-calories,
+.calories #calories-per-part {
+  font-size: 2rem;
+  color: var(--ske-accent-color);
+}
+
+#calories-per-part {
+  display: block;
+}
+
+input.invalid {
+  border-color: var(--ske-accent-color);
+}
+
+.hidden {
+  display: none;
+}
+
+#nb-parts {
+  width: 3em;
+}
+
+td button,
+td input {
+  margin-bottom: 0;
+}
+
+.button.button-accent,
+a.button.button-accent,
+button.button-accent,
+input[type="submit"].button-accent,
+input[type="reset"].button-accent,
+input[type="button"].button-accent {
+  color: var(--ske-light-txt);
+  background-color: var(--ske-accent-color);
+  border-color: var(--ske-accent-color);
+}
+
+.button.button-accent:hover,
+a.button.button-accent:hover,
+button.button-accent:hover,
+input[type="submit"].button-accent:hover,
+input[type="reset"].button-accent:hover,
+input[type="button"].button-accent:hover {
+  background-color: var(--ske-dark-txt);
+  border-color: var(--ske-dark-txt);
+}
