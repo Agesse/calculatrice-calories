@@ -32,7 +32,9 @@ window.addEventListener("load", () => {
  * Rechercher des ingredients dans la BDD et les afficher
  */
 function searchIngr() {
-  const resultsList = isIngrContains(document.getElementById(uniqueElems.searchElement).value);
+  const searchTxt = document.getElementById(uniqueElems.searchElement).value;
+  const keywords = /\s/.test(searchTxt) ? searchTxt.split(" ") : [searchTxt];
+  const resultsList = isIngrContains(keywords[0]);
   const resultsElem = document.getElementById(uniqueElems.resultsElement);
   const nbResultsUnfiltered = resultsList.snapshotLength;
   let nbResultsFiltered = 0;
@@ -58,6 +60,15 @@ function searchIngr() {
             break;
         }
       });
+
+      // Tri sur les autres mots cles
+      if (keywords.length > 1) {
+        let keywordNotFound = false;
+        for (let j = 1, nbKeyWords = keywords.length; j < nbKeyWords; j++) {
+          if (!currentIngrName.includes(keywords[j])) keywordNotFound = true;
+        }
+        if (keywordNotFound) continue;
+      }
 
       // Non affichage des ingredients sans calories renseignees
       if (!currentIngrCal) {
